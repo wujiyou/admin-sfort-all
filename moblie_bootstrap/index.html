@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./node_modules/bootstrap-table/dist/bootstrap-table.min.css">
+    <link rel="stylesheet" href="./node_modules/element-ui/lib/theme-chalk/index.css">
+    <title>草率了</title>
+</head>
+
+<body>
+    <div id="app">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">{{this.brand}}</a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li v-for="(item,index) in arrside" :index="item.name" :key="index" v-if="item.chidren==''">
+                            <a href="#">{{item.name}}</a>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown" v-for="(item,index) in arrside" :index="item.id" :key="index"
+                            v-if="item.chidren!=''">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                aria-haspopup="true" aria-expanded="false">{{item.name}} <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li v-for="(item1,index) in item.chidren" :index="item1.id" :key="index">
+                                    <a href="#">{{item1.name}}</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <form class="navbar-form navbar-left" :model="form">
+                        <div class="form-group">
+                            <input type="text" v-model="form.sou" class="form-control" placeholder="Search">
+                        </div>
+                        <button type="submit" @click="btnsou()" class="btn btn-default">搜索</button>
+                    </form>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#">Link</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Action</a></li>
+                                <li><a href="#">Another action</a></li>
+                                <li><a href="#">Something else here</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">Separated link</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+
+        <div class="col-xs-12">
+            <select class="form-control" v-model="value" @change="cbtn(value)">
+                <option>请选择</option>
+                <option v-for="(item,index) in opt" v-bind:value="item.id" :index="item.id" :key="index">{{item.name}}
+                </option>
+            </select>
+        </div>
+
+        <div>
+            <!-- <el-row :gutter="10">
+            <el-col :xs="8" :sm="6" :md="4" :lg="3" :xl="1"><div class="grid-content bg-purple" style="background-color: red;">1</div></el-col>
+            <el-col :xs="4" :sm="6" :md="8" :lg="9" :xl="11"><div class="grid-content bg-purple-light" style="background-color: aqua;">2</div></el-col>
+            <el-col :xs="4" :sm="6" :md="8" :lg="9" :xl="11"><div class="grid-content bg-purple" style="background-color: aqua;">3</div></el-col>
+            <el-col :xs="8" :sm="6" :md="4" :lg="3" :xl="1"><div class="grid-content bg-purple-light" style="background-color: orange;">4</div></el-col>
+        </el-row> -->
+        </div>
+    </div>
+</body>
+<script src="./node_modules/jquery/dist/jquery.min.js"></script>
+<script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="./node_modules/bootstrap-table/dist/bootstrap-table.min.js"></script>
+<script src="./node_modules/bootstrap-table/dist/locale/bootstrap-table-zh-CN.min.js"></script>
+
+<script src="./js/vue.js"></script>
+<script src="./node_modules/element-ui/lib/index.js"></script>
+
+<script>
+    var app = new Vue({
+        el: "#app",
+        data: {
+            brand: "首页",
+            form: {
+                sou: ""
+            },
+            value: "",
+            opt: [{
+                    id: 212312,
+                    name: "搓搓"
+                },
+                {
+                    id: 452121212,
+                    name: "搜索"
+                }
+            ],
+            arrside: [{
+                    id: 457878,
+                    name: "电脑",
+                    chidren: ""
+                },
+                {
+                    id: 7875454,
+                    name: "手机",
+                    chidren: ""
+                },
+                {
+                    id: 1213,
+                    name: "你好",
+                    chidren: [{
+                            id: 454564,
+                            name: "再见",
+                        },
+                        {
+                            id: 78787,
+                            name: "拜拜"
+                        },
+                        {
+                            id: 4121212,
+                            name: "谢谢"
+                        }
+                    ]
+                }
+            ]
+        },
+        created() {
+           
+        },
+        methods: {
+            btnsou() {
+                console.log(this.form.sou);
+            },
+            cbtn(val) {
+
+                if (val == "请选择") {
+                    this.value = ""
+                    console.log("--------");
+                    // console.log(this.value + "@");
+                } else {
+                    console.log("==========");
+                    console.log(val);
+                }
+            }
+        }
+    })
+</script>
+
+</html>

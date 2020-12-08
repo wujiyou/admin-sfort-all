@@ -1,0 +1,31 @@
+                electron-vue   应用程序pc端桌面图标
+
+  先安装好node.js
+
+ 一：使用electron集成桌面应用
+
+      第一步：克隆官方demo：git clone https://github.com/electron/electron-quick-start 
+
+      第二步：再克隆完成后该（electron-quick-start）文件的目录 Shift+右键   找到“在此处打开 Powershell 窗口”
+
+      第三步：cd electron-quick-start  对应目录下
+   
+      第四步： npm install electron -g 或者  npm install electron-packager -g 下载依赖包  
+
+      第五步：npm start 运行到这步查看是否能打开应用
+   
+      第六步：将自己vue项目打包好的dist文件中的index.html和static文件放入electron-quick-start（跟目录）文件中，重新start一下，运行
+
+      第七步：在package.json中的“scripts”增加下代码   "package": "electron-packager ./ notes --all --out ./OutApp --electron-version 4.0.1 --overwrite --icon=./static/img/logo.ico electron-builder --win --ia32"
+
+      --icon=./static/img/logo.ico   icon代表的是应用程序的图标，这个图标需要icon格式
+
+      修改win桌面的图标：
+            "build":{
+                "appId":"192.168.0.8:8088",
+                "win":{
+                     "icon":"logo.ico"//路径要对上。否则找不到
+                  }
+              },
+
+     第八步：输入 npm run package 命令进行打包就可以了

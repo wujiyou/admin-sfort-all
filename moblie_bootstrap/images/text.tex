@@ -1,0 +1,100 @@
+<template>
+   <!--无限加载-->
+          <div class="infinite-list-wrapper" style="overflow:auto">
+            <ul
+              class="list"
+              v-infinite-scroll="load"
+              infinite-scroll-disabled="disabled">
+              <li v-for="i in count" class="list-item">
+                <img v-bind:src="i.doperationUrl" alt="图片加载失败" style="width: 175px;height: 118px">
+              </li>
+            </ul>
+            <el-row style="height: 60px" v-if="loading"
+                    v-loading="loading"
+                    element-loading-text="拼命加载中"
+                    element-loading-spinner="el-icon-loading"
+                    element-loading-background="rgba(0, 0, 0, 0.3)"></el-row>
+            <p v-if="noMore">没有更多了</p>
+          </div>
+  </template>
+  <script>
+  //引入axios
+  import axios from 'axios'
+
+  export default {
+    data() {
+      return {
+        count: [],
+        loading: false,
+        aaaa: {pageNum: 1, pageSize: 6},
+        pages: 1,
+        currentPage: 1
+      }
+    },
+    computed: {
+      noMore() {
+        //当前页和,和返回的总页面对比
+        return this.currentPage >= this.pages;
+      },
+      disabled() {
+        //当两个都为真的时候不加载,页面滚动失效
+        return this.loading || this.noMore
+      }
+    },
+    methods: {
+      load() {
+        this.loading = true;
+        this.aaaa.pageNum = this.currentPage + 1;
+        setTimeout(() => {
+          axios.post("api/campus-learn-data/findAllByPage", this.aaaa).then(res => {
+            let pageInfo = res.data.list;
+            for (var i = 0; i < pageInfo.length; i++) {
+              this.count.push(pageInfo[i]);
+            }
+            this.loading = false;
+            console.log(this.count);
+            //当前页
+            this.currentPage = res.data.currentPage;
+          }).catch(function (error) {
+            console.log(error);
+          });
+        }, 1000);
+      }
+    },
+    created() {
+      /*首次显示页面加载的图块*/
+      axios.post("api/campus-learn-data/findAllByPage", this.aaaa).then(res => {
+        this.count = res.data.list;
+        /*返回总页数*/
+        //alert(res.data.pages)
+        this.pages = res.data.pages;
+      })
+    }
+  }
+</script>
+<style scoped>
+  .infinite-list-wrapper {
+    width: 100%;
+    height: 450px;
+    border: 1px solid rebeccapurple;
+  }
+
+  .list {
+    width: 100%;
+  }
+
+  .list li {
+    height: 120px;
+    width: 170px;
+    margin: 6px;
+    background: #8c939d;
+    list-style: decimal;
+    /*解决图块不能同行显示*/
+    display:inline-block;
+  }
+
+  .infinite-list-wrapper p {
+    text-align: center;
+  }
+
+</style>

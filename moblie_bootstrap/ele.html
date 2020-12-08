@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/ele.css">
+    <link rel="stylesheet" href="./node_modules/element-ui/lib/theme-chalk/index.css">
+    <title>升级版草率了</title>
+    <style>
+        .el-col {
+            border-radius: 4px;
+        }
+
+        .bg-purple-dark {
+            /* background: #99a9bf; */
+        }
+
+        .bg-purple-light {
+            /* background: #e5e9f2; */
+        }
+
+        .grid-content {
+            border-radius: 4px;
+            min-height: 36px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="ele">
+        <div class="header">
+            <el-row :gutter="10">
+                <el-col :xs="8" :sm="8" :md="8" :lg="8" :xl="8">
+                    <div class="grid-content bg-purple-light"></div>
+                </el-col>
+                <el-col :xs="8" :sm="8" :md="8" :lg="8" :xl="8">
+                    <div class="grid-content bg-purple">
+                        <img src="./images/fz.png" alt="">
+                    </div>
+                </el-col>
+                <el-col :xs="8" :sm="8" :md="8" :lg="8" :xl="8">
+                    <div class="grid-content bg-purple-dark">
+                        <img src="./images/tou.png" alt="">
+                    </div>
+                </el-col>
+            </el-row>
+            
+            <el-row :gutter="10">
+                <el-col :xs="2" :sm="2" :md="2" :lg="2" :xl="2"></el-col>
+                <el-col :xs="20" :sm="20" :md="20" :lg="20" :xl="20">
+                    <div class="put">
+                        <input type="text" placeholder="上海迪士尼">
+                    </div>
+                </el-col>
+                <el-col :xs="2" :sm="2" :md="2" :lg="2" :xl="2"></el-col>
+            </el-row>
+
+            <el-row :gutter="10">
+                <div class="ctext">
+                    <el-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24">
+                        <span class="text rs">热搜</span>
+                        <span class="text meim">每满700减20</span>
+                        <span class="text rs">广州长隆万圣节</span>
+                        <span class="text meim">万豪</span>
+                    </el-col>
+                </div>
+            </el-row>
+        </div>
+        <div class="banners">
+            <el-row :gutter="10">
+                <div class="bgcolor">
+                    <el-col :xs="1" :sm="1" :md="1" :lg="1" :xl="1">
+                        <div class="grid-content bg-purple-light"></div>
+                    </el-col>
+                    <el-col :xs="23" :sm="22" :md="22" :lg="22" :xl="22">
+
+                        <!--动态将图片轮播图的容器高度设置成与图片一致-->
+                            <el-carousel >
+
+                            <!--       :height="bannerHeight + '%'" -->
+                            <!--遍历图片地址,动态生成轮播图-->
+
+                                  <el-carousel-item v-for="item in img_list" :key="item">
+
+                                        <img :src="item" alt  />
+
+                                      </el-carousel-item>
+
+                                </el-carousel>
+
+
+
+                    </el-col>
+                    <el-col :xs="1" :sm="1" :md="1" :lg="1" :xl="1">
+                        <div class="grid-content bg-purple-light"></div>
+                    </el-col>
+                </div>
+            </el-row>
+        </div>
+        <div class="content">
+            <el-row :gutter="10" style="margin: 0 auto;">
+                <el-col :xs="2" :sm="2" :md="2" :lg="2" :xl="2">
+                    <div class="grid-content bg-purple-light shophb"></div>
+                </el-col>
+                <el-col :xs="4" :sm="4" :md="4" :lg="4" :xl="4">
+                    <div class="grid-content bg-purple-light shophb">
+                        <p>
+                            <img src="./images/fj.png" alt="">
+                        </p>
+                        <p>
+                            <span>机票</span>
+                        </p>
+                    </div>
+                </el-col>
+                <el-col :xs="4" :sm="4" :md="4" :lg="4" :xl="4">
+                    <div class="grid-content bg-purple-light shophb">
+                        <p>
+                            <img src="./images/fj.png" alt="">
+                        </p>
+                        <p>
+                            <span>酒店</span>
+                        </p>
+                    </div>
+                </el-col>
+                <el-col :xs="4" :sm="4" :md="4" :lg="4" :xl="4">
+                    <div class="grid-content bg-purple-light shophb">
+                        <p>
+                            <img src="./images/fj.png" alt="">
+                        </p>
+                        <p>
+                            <span>火车票</span>
+                        </p>
+                    </div>
+                </el-col>
+                <el-col :xs="4" :sm="4" :md="4" :lg="4" :xl="4">
+                    <div class="grid-content bg-purple-light shophb">
+                        <p>
+                            <img src="./images/fj.png" alt="">
+                        </p>
+                        <p>
+                            <span>汽车票</span>
+                        </p>
+                    </div>
+                </el-col>
+                <el-col :xs="4" :sm="4" :md="4" :lg="4" :xl="4">
+                    <div class="grid-content bg-purple-light shophb">
+                        <p>
+                            <img src="./images/fj.png" alt="">
+                        </p>
+                        <p>
+                            <span>门票</span>
+                        </p>
+                    </div>
+                </el-col>
+                <el-col :xs="2" :sm="2" :md="2" :lg="2" :xl="2">
+                    <div class="grid-content bg-purple-light shophb"></div>
+                </el-col>
+            </el-row>
+
+            <el-row :gutter="10">
+                <el-col :xs="1" :sm="1" :md="1" :lg="1" :xl="1">
+                    <div class="grid-content bg-purple-light"></div>
+                </el-col>
+                <el-col :xs="22" :sm="22" :md="22" :lg="22" :xl="22">
+                    <div class="grid-content bg-purple-light textbg">
+                        <div>
+                            <p>出境游</p>
+                            <p><span>走遍全国</span></p>
+                        </div>
+                        <div>
+                            <p>出境游</p>
+                            <p><span>走遍全国</span></p>
+                        </div>
+                        <div>
+                            <p>出境游</p>
+                            <p><span>走遍全国</span></p>
+                        </div>
+                        <div>
+                            <p>出境游</p>
+                            <p><span>走遍全国</span></p>
+                        </div>
+                        <div>
+                            <p>出境游</p>
+                            <p><span>走遍全国</span></p>
+                        </div>
+                        <div>
+                            <p>出境游</p>
+                            <p><span>走遍全国</span></p>
+                        </div>
+                        <div>
+                            <p>出境游</p>
+                            <p><span>走遍全国</span></p>
+                        </div>
+                        <div>
+                            <p>出境游</p>
+                            <p><span>走遍全国</span></p>
+                        </div>
+                    </div>
+                    <div class="textbg_bottom">
+                        <div class="huiyuan">
+                            <p>
+                                <img src="./images/hg.png" alt="">
+                            </p>
+                            <p>
+                                专属福利天天领
+                            </p>
+                        </div>
+                        <div class="qiandao">
+                            <span>
+                                <img src="./images/qian.png" alt="">
+                                <!-- <span>马上...</span> -->
+                            </span>
+                            <span>马上...</span>
+                        </div>
+                    </div>
+                </el-col>
+                <el-col :xs="1" :sm="1" :md="1" :lg="1" :xl="1">
+                </el-col>
+            </el-row>
+
+            <el-row :gutter="10">
+                <el-col :xs="1" :sm="1" :md="1" :lg="1" :xl="1">
+                    <div class="grid-content bg-purple-light"></div>
+                </el-col>
+                <el-col :xs="22" :sm="22" :md="22" :lg="22" :xl="22">
+                    <div class="grid-content bg-purple-light tcontent">
+                        <span style="width: 15%;display: block;"><img src="./images/fzz.png" alt=""></span>
+                        <p style="width: 55%;margin-left: 10px;">
+                            <span style="display: block;color: black;font-weight: bold;">去飞猪APP</span>
+                            <span style="display: block;color: gray;">享受以下专享权益与优惠</span>
+                        </p>
+                        <p style=" margin:15px 0;">
+                            <span class="qxz">去下载</span>
+                        </p>
+                    </div>
+
+                </el-col>
+                <el-col :xs="1" :sm="1" :md="1" :lg="1" :xl="1">
+                    <div class="grid-content bg-purple-light "></div>
+                </el-col>
+            </el-row>
+
+            <el-row :gutter="10">
+                <el-col :xs="1" :sm="1" :md="1" :lg="1" :xl="1">
+                    <div class="grid-content bg-purple-light"></div>
+                </el-col>
+                <el-col :xs="22" :sm="22" :md="22" :lg="22" :xl="22">
+                    <div class="grid-content bg-purple-light fz_hb">
+                        <div>
+                            <p>里程抵现</p>
+                            <p>100里程=1元</p>
+                            <p>里程直接当钱花</p>
+                        </div>
+                        <div>
+                            <p>里程抵现</p>
+                            <p>100里程=1元</p>
+                            <p>里程直接当钱花</p>
+                        </div>
+                        <div>
+                            <p>里程抵现</p>
+                            <p>100里程=1元</p>
+                            <p>里程直接当钱花</p>
+                        </div>
+                        <div>
+                            <p> <img src="./images/hbfz.png" alt=""></p>
+                        </div>
+                        <div>
+                            <p> <img src="./images/yhj.png" alt=""></p>
+                        </div>
+                        <div>
+                            <p> <img src="./images/hbfz.png" alt=""></p>
+                        </div>
+
+                    </div>
+                </el-col>
+                <el-col :xs="1" :sm="1" :md="1" :lg="1" :xl="1">
+                    <div class="grid-content bg-purple-light "></div>
+                </el-col>
+            </el-row>
+
+            <el-row :gutter="10">
+                <el-col :xs="1" :sm="1" :md="1" :lg="1" :xl="1">
+                    <div class="grid-content bg-purple-light"></div>
+                </el-col>
+                <el-col :xs="22" :sm="22" :md="22" :lg="22" :xl="22">
+                    <div class="grid-content bg-purple-light fz_hbs">
+                        <div class="plane_fl">
+                            <!-- <img src="./images/fplane.png" alt=""> -->
+                        </div>
+                        <div class="plane_rt">
+                            <div class="plane_rt_top">
+
+                            </div>
+                            <div class="plane_rt_bottom">
+
+                            </div>
+                        </div>
+                    </div>
+                </el-col>
+                <el-col :xs="1" :sm="1" :md="1" :lg="1" :xl="1">
+                    <div class="grid-content bg-purple-light"></div>
+                </el-col>
+            </el-row>
+
+            <el-row :gutter="10">
+                <el-col :xs="1" :sm="1" :md="1" :lg="1" :xl="1">
+                    <div class="grid-content bg-purple-light"></div>
+                </el-col>
+                <el-col :xs="22" :sm="22" :md="22" :lg="22" :xl="22">
+                    <div class="grid-content bg-purple-light dji_cont">
+                        <div class="d_flex">
+                            <h2>当季旅行地</h2>
+                            <span>探索更多目的地<span>></span></span>
+                        </div>
+                        <div class="d_bottom">
+                            <!-- <el-scrollbar style="height: 100%;" class="scrollbar_x"> -->
+                            <div class="d_bottom_img">
+                                <div class="c_dou">
+                                    <h2>成都</h2>
+                                </div>
+                                <div class="x_gang">
+                                    <h2>香港</h2>
+                                </div>
+                                <div class="m_gu">
+                                    <h2>曼谷</h2>
+                                </div>
+                                <div class="h_zhou">
+                                    <h2>惠州</h2>
+                                </div>
+                                <div class="l_jiang">
+                                    <h2>丽江</h2>
+                                </div>
+                            </div>
+                            <!-- </el-scrollbar> -->
+
+
+                        </div>
+                    </div>
+                </el-col>
+                <el-col :xs="1" :sm="1" :md="1" :lg="1" :xl="1">
+                    <div class="grid-content bg-purple-light"></div>
+                </el-col>
+            </el-row>
+
+            <el-row :gutter="10">
+                <el-col :xs="1" :sm="1" :md="1" :lg="1" :xl="1">
+                    <div class="grid-content bg-purple-light"></div>
+                </el-col>
+                <el-col :xs="22" :sm="22" :md="22" :lg="22" :xl="22">
+                    <div class="grid-content bg-purple-light dji_cont">
+                        <div class="d_flex">
+                            <h2>旅行主题</h2>
+                            <span>最适合你的旅行方式</span>
+                        </div>
+                        <div class="lx_top">
+                            <div>
+                                <p>带娃游全国</p>
+                                <p>带娃点亮地图</p>
+                            </div>
+                            <div>
+                                <p>主题乐园控</p>
+                                <p>刷遍全国乐园</p>
+                            </div>
+                        </div>
+                        <div class="lx_bottom">
+                            <div>
+                                <p>大阪玩了</p>
+                                <p>大阪玩乐体验</p>
+                            </div>
+                            <div>
+                                <p>全球美术馆</p>
+                                <p>网红美术馆打卡</p>
+                            </div>
+                            <div>
+                                <p>米其林大赏</p>
+                                <p>吃货最高最求</p>
+                            </div>
+                        </div>
+                    </div>
+                </el-col>
+                <el-col :xs="1" :sm="1" :md="1" :lg="1" :xl="1">
+                    <div class="grid-content bg-purple-light"></div>
+                </el-col>
+            </el-row>
+
+            <el-row :gutter="10">
+                <el-col :xs="1" :sm="1" :md="1" :lg="1" :xl="1">
+                    <div class="grid-content bg-purple-light"></div>
+                </el-col>
+                <el-col :xs="22" :sm="22" :md="22" :lg="22" :xl="22">
+                    <div class="grid-content bg-purple-light dji_cont">
+                        <div class="d_flex">
+                            <h2>旅行直播</h2>
+                            <span>达人带你看世界</span>
+                        </div>
+                        <div class="lx_zb">
+                            <div>
+                                <h4>福利不停！速来直播间</h4>
+                                <p>
+                                    <span class="yyuan">回放</span>
+                                    <span class="k_gsws">353看过</span>
+                                </p>
+                            </div>
+                            <div>
+                                <h4>相约丽江朝圣梅里</h4>
+                                <p>
+                                    <span class="yyuan">回放</span>
+                                    <span class="k_gsws">4392看过</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </el-col>
+                <el-col :xs="1" :sm="1" :md="1" :lg="1" :xl="1">
+                    <div class="grid-content bg-purple-light"></div>
+                </el-col>
+            </el-row>
+
+            <el-row :gutter="10">
+                <el-col :xs="1" :sm="1" :md="1" :lg="1" :xl="1">
+                    <div class="grid-content bg-purple-light"></div>
+                </el-col>
+                <el-col :xs="22" :sm="22" :md="22" :lg="22" :xl="22">
+                    <div class="grid-content bg-purple-light dji_contl">
+                        <div class="d_flex">
+                            <h2>猜你喜欢</h2>
+                            <span>你想要的旅行好货</span>
+                        </div>
+
+                        <div class="cn_xh">
+                            <!-- <div class="cn_xh_img"> -->
+                            <ul class="ul_limg" v-infinite-scroll="load" infinite-scroll-disabled="disabled"
+                                style="overflow:auto">
+                                <li v-for="(item,index) in imgdata" :index="item.index">
+                                    <p>
+                                        <img :src="item.img" alt="图片加载失败">
+                                    </p>
+                                    <div class="cn_xh_bottom">
+                                        <p>
+                                            {{item.title}}
+                                        </p>
+                                        <p>
+                                            {{item.text}}
+                                        </p>
+                                        <p>
+                                            <span>￥{{item.money}}</span>
+                                            <span>{{item.number}}</span>
+                                            <span class="yd_dain">
+                                                <img :src="item.simg" alt="">
+                                            </span>
+                                        </p>
+                                    </div>
+                                </li>
+                            </ul>
+                            <el-row style="height: 60px" v-if="loading" v-loading="loading" element-loading-text="拼命加载中"
+                                element-loading-spinner="el-icon-loading"
+                                element-loading-background="rgba(0, 0, 0, 0.3)"></el-row>
+                            <p v-if="noMore">没有更多了</p>
+                            <!-- </div> -->
+                        </div>
+
+                    </div>
+                </el-col>
+                <el-col :xs="1" :sm="1" :md="1" :lg="1" :xl="1">
+                    <div class="grid-content bg-purple-light"></div>
+                </el-col>
+            </el-row>
+        </div>
+    </div>
+</body>
+
+<script src="./js/vue.js"></script>
+<script src="./node_modules/element-ui/lib/index.js"></script>
+<script>
+    var ele = new Vue({
+        el: "#ele",
+        data: {
+            img_list: ["./images/bgcolor.png", "./images/ky.png", "./images/qfhs.png"],
+            // bannerHeight: 800,
+            loading: false,
+            imgdata: [{
+
+                    img: "./images/mls.png",
+                    title: "上海.门票",
+                    text: "[上海迪士尼度假区-双人1日票套票常规日]产品细则请以详情页为准",
+                    money: "399",
+                    number: "10.5万人购买",
+                    simg: "./images/dd.png"
+                },
+                {
+                    img: "./images/cdfj.png",
+                    title: "上海.门票",
+                    text: "[上海迪士尼度假区-双人1日票套票常规日]产品细则请以详情页为准",
+                    money: "399",
+                    number: "20.5万人购买",
+                    simg: "./images/dd.png"
+                },
+                {
+                    img: "./images/mls.png",
+                    title: "上海.门票",
+                    text: "[上海迪士尼度假区-双人1日票套票常规日]产品细则请以详情页为准",
+                    money: "399",
+                    number: "10.5万人购买",
+                    simg: "./images/dd.png"
+                },
+                {
+                    img: "./images/cdfj.png",
+                    title: "上海.门票",
+                    text: "[上海迪士尼度假区-双人1日票套票常规日]产品细则请以详情页为准",
+                    money: "399",
+                    number: "20.5万人购买",
+                    simg: "./images/dd.png"
+                },
+                {
+                    img: "./images/mls.png",
+                    title: "上海.门票",
+                    text: "[上海迪士尼度假区-双人1日票套票常规日]产品细则请以详情页为准",
+                    money: "399",
+                    number: "10.5万人购买",
+                    simg: "./images/dd.png"
+                },
+                {
+                    img: "./images/cdfj.png",
+                    title: "上海.门票",
+                    text: "[上海迪士尼度假区-双人1日票套票常规日]产品细则请以详情页为准",
+                    money: "399",
+                    number: "20.5万人购买",
+                    simg: "./images/dd.png"
+                },
+                {
+                    img: "./images/mls.png",
+                    title: "上海.门票",
+                    text: "[上海迪士尼度假区-双人1日票套票常规日]产品细则请以详情页为准",
+                    money: "399",
+                    number: "10.5万人购买",
+                    simg: "./images/dd.png"
+                },
+                {
+                    img: "./images/cdfj.png",
+                    title: "上海.门票",
+                    text: "[上海迪士尼度假区-双人1日票套票常规日]产品细则请以详情页为准",
+                    money: "399",
+                    number: "20.5万人购买",
+                    simg: "./images/dd.png"
+                },
+                {
+                    img: "./images/mls.png",
+                    title: "上海.门票",
+                    text: "[上海迪士尼度假区-双人1日票套票常规日]产品细则请以详情页为准",
+                    money: "399",
+                    number: "10.5万人购买",
+                    simg: "./images/dd.png"
+                },
+                {
+                    img: "./images/cdfj.png",
+                    title: "上海.门票",
+                    text: "[上海迪士尼度假区-双人1日票套票常规日]产品细则请以详情页为准",
+                    money: "399",
+                    number: "20.5万人购买",
+                    simg: "./images/dd.png"
+                }
+            ]
+            // screenWidth: 0
+        },
+        created() {
+
+        },
+        computed: {
+            noMore() {
+        //当前页和,和返回的总页面对比
+        // return this.currentPage >= this.pages;
+      },
+            disabled() {
+                //当两个都为真的时候不加载,页面滚动失效
+                return this.loading || this.noMore
+            }
+        },
+        methods: {
+            load() {
+                this.loading = true;
+                // this.imgdata += 2
+            },
+            setSize: function () {
+
+                // 通过浏览器宽度(图片宽度)计算高度
+
+                // this.bannerHeight = (80 / 320) * this.screenWidth;
+
+            }
+        },
+        mounted() {
+
+            // 首次加载时,需要调用一次
+
+            // this.screenWidth = window.innerWidth;
+
+            // this.setSize();
+
+            // // 窗口大小发生改变时,调用一次
+
+            // window.onresize = () => {
+
+            //     this.screenWidth = window.innerWidth;
+
+            //     this.setSize();
+
+            // };
+
+        }
+
+    })
+</script>
+
+</html>
