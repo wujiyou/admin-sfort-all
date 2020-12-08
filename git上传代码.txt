@@ -1,3 +1,5 @@
+克隆远程仓库
+git clone https://github.com/wujiyou/admin-sfort-all.git
 git add .
 git stuatus
 git commit -m "../.."
