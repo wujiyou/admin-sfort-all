@@ -1,0 +1,219 @@
+{
+    "data": [
+      {
+        "id":121231,
+        "name": "站点从业人员管理",
+        "children": [
+          {
+            "name": "充装站人员管理",
+            "path": "/unit/unit/filling",
+            "children":""
+          },
+          {
+            "name": "配送装人员管理",
+            "path": "/unit/unit/delivery",
+            "children":""
+          },
+          {
+            "name": "检验站人员管理",
+            "path": "/unit/unit/checkout",
+            "children":""
+          },
+          {
+            "name": "人员管理",
+            "path": "/unit/personnel/user",
+            "children":""
+          },
+          {
+            "name": "公告管理",
+            "path": "/system/announcement",
+            "children":""
+          }
+        ]
+      },
+      {
+        "id":1231,
+        "name": "液化气瓶档案管理",
+        "children": [
+          {
+            "name": "气瓶档案管理",
+            "path": "/bottle/archives/liquefied",
+            "children":""
+          },
+          {
+            "name": "气瓶超期预警",
+            "path": "/warning/msg/bottle",
+            "children":""
+          },
+          {
+            "name": "气瓶信息管理",
+            "path": "/uplo",
+            "children":""
+          },
+          {
+            "name": "气瓶标签发卡管理",
+            "path": "/bottle/labelCard/liquefied",
+            "children":""
+          },
+          {
+            "name": "气瓶检验报告",
+            "path": "/bottle/report/liquefied",
+            "children":""
+          }
+    
+        ]
+        
+      },
+      {
+        "id":123,
+        "name": "液化气瓶流转管理",
+        "children": [
+          {
+            "name": "入栈气瓶统计",
+            "path": "/query/liquefied/bottleNumber",
+            "children":""
+          },
+          {
+            "name": "出栈气瓶统计",
+            "path": "/query/liquefied/outbound",
+            "children":""
+          },
+          {
+            "name": "配送中气瓶",
+            "path": "/query/liquefied/distribution",
+            "children":""
+          },
+          {
+            "name": "送货完成气瓶",
+            "path": "/data/liquefied/delivery",
+            "children":""
+          },
+          {
+            "name": "气瓶地图显示",
+            "path": "/query/liquefied/map",
+            "children":""
+          }
+         
+        ]
+      },
+      {
+        "id":45254,
+        "name": "气瓶运输车辆管理",
+        "children": [
+          {
+            "name": "运输企业登记管理",
+            "path": "/unit/car/company",
+            "children":""
+          },
+          {
+            "name": "运输车辆档案管理",
+            "path": "/unit/car/car",
+            "children":""
+          }
+        ]
+      },
+      {
+        "id":4546,
+        "name": "液化气瓶客户管理",
+        "path": "/base",
+        "children": [
+          {
+            "name": "客户档案管理",
+            "path": "/query/liquefied/client",
+            "children":""
+          },
+          {
+            "name": "客户订单管理",
+            "path": "/query/liquefied/order",
+            "children":""
+          },
+          {
+            "name": "客户配送信息",
+            "path": "/404",
+            "children":""
+          },
+          {
+            "name": "客户评价投诉处理",
+            "path": "/query/liquefied/evaluation",
+            "children":""
+          }
+        ]
+      },
+      {
+        "id":7879,
+        "name": "综合数据统计分析",
+        "path": "/error",
+        "children": [
+          {
+            "name": "气瓶充装记录",
+            "path": "/query/liquefied/filling",
+            "children":""
+          },
+          {
+            "name": "气瓶数量状态统计",
+            "path": "/404",
+            "children":""
+          }
+        ]
+      },
+      {
+        "id":1566,
+        "name": "告警信息管理",
+        "path": "/error",
+        "children": [
+          {
+            "name": "气瓶超期管理",
+            "path": "/404",
+            "children":""
+          },
+          {
+            "name": "气瓶黑名单",
+            "path": "/404",
+            "children":""
+          },
+          {
+            "name": "气瓶异常充装信息",
+            "path": "/warning/filling/exception",
+            "children":""
+          },
+          {
+            "name": "气瓶流失查询",
+            "path": "/404",
+            "children":""
+          }
+        ]
+      },
+      {
+        "id":123667,
+        "name": "系统管理",
+        "path": "/error",
+        "children": [
+          {
+            "name": "角色管理",
+            "path": "/system/role",
+            "children":""
+          },
+          {
+            "name": "单位管理",
+            "path": "/404",
+            "children":""
+          },
+          {
+            "name": "用户管理",
+            "path": "/system/user",
+            "children":""
+          },
+          {
+            "name": "硬件appid配置",
+            "path": "/system/hardware",
+            "children":""
+          },
+          {
+            "name": "日志管理",
+            "path": "/warning/system/operate",
+            "children":""
+          }
+        ]
+      }
+    ]
+  }
