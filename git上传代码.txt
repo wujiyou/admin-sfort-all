@@ -5,6 +5,8 @@ git stuatus
 git commit -m "../.."
 从远程的origin仓库的master分支下载代码到本地的origin master
 git fetch origin master
+git到你的远程库地址
+git remote add origin https://github.com/wujiyou/admin-sfort-all.git
 git更新代码
 git pull origin master
 git上传提交
