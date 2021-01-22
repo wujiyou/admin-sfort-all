@@ -1,7 +1,7 @@
 克隆远程仓库
 git clone https://github.com/wujiyou/admin-sfort-all.git
 git add .
-git stuatus
+git status
 git commit -m "../.."
 从远程的origin仓库的master分支下载代码到本地的origin master
 git fetch origin master
